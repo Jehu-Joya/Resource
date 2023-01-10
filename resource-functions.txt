@@ -1,0 +1,35 @@
+function Clear() {
+	rm -rfv .git
+	git init
+	git config --global user.name "Jehu"
+	git config --global user.email "Jehu.Joya@gmail.com"
+	git remote add origin git@github.com:Jehu-Joya/xxxx.git
+	git add .
+	git commit -m "Init"
+	git branch -m main
+	git push origin main -f
+	sleep 3
+	git checkout --orphan new_branch
+	git commit -m "Init"
+	git branch -D main
+	git branch -m main
+	git push origin main -f
+	echo
+	debug
+}
+
+function Upload() {
+	status_log=$(git status -sb)
+	# 这里使用的是 main 分支，根据需求自行修改
+	if [ "$status_log" == "## main...origin/main" ]; then
+		echo -e "\033[42;30m nothing to commit, working tree clean \033[0m"
+	else
+		git status -s
+		git pull origin main
+		git add .
+		git commit -m "$(date '+%Y.%m.%d %H:%M:%S') 更新倉庫"
+		git push origin main
+	fi
+	echo
+	debug
+}
