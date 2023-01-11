@@ -1,0 +1,21 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# custome
+collection/repo/temp
+fq/clash/config/Clash.yaml
+fq/clash/config/Clash+.yaml
+fq/clash/proxy/bak
+fq/clash/proxy/provider
+fq/clash/proxy/utils
+fq/loon/config/Loon.conf
+fq/surfboard/config/Surfboard.conf
